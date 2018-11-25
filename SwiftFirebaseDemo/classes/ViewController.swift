@@ -21,17 +21,12 @@ class ViewController: UIViewController, FUIAuthDelegate {
     super.viewDidAppear(animated)
     
     if Auth.auth().currentUser != nil {
-//      do {
-//        try Auth.auth().signOut()
-//      } catch {
-//        NSLog("ERROR")
-//      }
       doNavigation()
     } else {
       let authUI = FUIAuth.defaultAuthUI()
       authUI?.delegate = self
       let providers: [FUIAuthProvider] = [
-        // TODO: Facebook/Google/Twitter credentials in plist file
+        // TODO: Facebook/Twitter credentials setup
         FUIGoogleAuth(),
         FUIFacebookAuth(),
         FUITwitterAuth(),
